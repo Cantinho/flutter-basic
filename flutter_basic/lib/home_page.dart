@@ -113,7 +113,41 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _onClickDialog(BuildContext context) {}
+  _onClickDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      // barrier dismissible evicts dialog closes screen outside.
+      barrierDismissible: false,
+      builder: (context) {
+        // WillPopScope instead of AlertDialog prevents
+        // alert dialog closes while pushs screen back button.
+        return WillPopScope(
+
+          // Remove onWillPop if using Alert Dialog.
+          onWillPop: () async => false,
+          child: AlertDialog(
+            title: Text("Flutter Alert Dialog is cool!"),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("Cancel"),
+                onPressed: () {
+                  print("cancel dialog");
+                  Navigator.pop(context);
+                },
+              ),
+              FlatButton(
+                child: Text("OK"),
+                onPressed: () {
+                  print("ok dialog");
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   _onClickToast(BuildContext context) {}
 
