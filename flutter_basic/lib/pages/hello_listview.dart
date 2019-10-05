@@ -27,9 +27,10 @@ class HelloListView extends StatelessWidget {
       Dog("Pastor", "assets/images/dog5.png"),
     ];
 
-    return ListView.builder(
+    return GridView.builder(
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemCount: dogs.length,
-        itemExtent: 300,
         itemBuilder: (context, index) {
           Dog dog = dogs[index];
           return Stack(
@@ -42,9 +43,8 @@ class HelloListView extends StatelessWidget {
                   margin: EdgeInsets.all(8),
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.black45,
-                    borderRadius: BorderRadius.circular(8)
-                  ),
+                      color: Colors.black45,
+                      borderRadius: BorderRadius.circular(8)),
                   child: Text(
                     dog.name,
                     style: TextStyle(
