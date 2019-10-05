@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/pages/dog_page.dart';
+import 'package:flutter_basic/utils/nav.dart';
 
 class Dog {
   String name;
@@ -77,27 +79,32 @@ class _HelloListViewState extends State<HelloListView> {
 
   _itemView(List<Dog> dogs, int index) {
     Dog dog = dogs[index];
-    return Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
-        _img(dog.photo),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Container(
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-                color: Colors.black45, borderRadius: BorderRadius.circular(8)),
-            child: Text(
-              dog.name,
-              style: TextStyle(
-                fontSize: 26,
-                color: Colors.redAccent,
+    return GestureDetector(
+      onTap: () {
+        push(context, DogPage(dog));
+      },
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          _img(dog.photo),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: EdgeInsets.all(8),
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                  color: Colors.black45, borderRadius: BorderRadius.circular(8)),
+              child: Text(
+                dog.name,
+                style: TextStyle(
+                  fontSize: 26,
+                  color: Colors.redAccent,
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
