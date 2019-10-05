@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/pages/hello_listview.dart';
-import 'package:flutter_basic/pages/hello_page1.dart';
 import 'package:flutter_basic/pages/hello_page2.dart';
 import 'package:flutter_basic/pages/hello_page3.dart';
 import 'package:flutter_basic/utils/nav.dart';
 import 'package:flutter_basic/widgets/blue_button.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -149,7 +149,18 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _onClickToast(BuildContext context) {}
+  _onClickToast(BuildContext context) {
+    Fluttertoast.showToast(
+        msg: "This is Center Short Toast",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.CENTER,
+        // timeInSecForIos is only used for iOS.
+        timeInSecForIos: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+  }
 
   void _onClickNavigator(BuildContext context, Widget page) async {
     String s = await push(context, page);
