@@ -35,6 +35,22 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  _bodyExpanded(BuildContext context) {
+    // Padding can be used instead of Container.
+    return Column(
+      children: <Widget>[
+        Expanded(
+          flex: 7,
+          child: _pageView(),
+        ),
+        Expanded(
+          flex: 3,
+          child: _pageView(),
+        )
+      ],
+    );
+  }
+
   _pageView() {
     return Container(
       margin: EdgeInsets.only(top: 16, bottom: 16),
