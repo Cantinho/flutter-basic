@@ -15,20 +15,13 @@ class HomePage extends StatelessWidget {
   }
 
   _body(context) {
-
-    Size size = MediaQuery.of(context).size;
-
     return Container(
-      width: size.width,
-      color: Colors.yellow,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          _text(),
+          _img(),
           _button(),
-          _button(),
-          _button()
         ],
       ),
     );
