@@ -17,15 +17,49 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: _body(context),
+//      floatingActionButton: FloatingActionButton(
+//        backgroundColor: Colors.redAccent,
+//        child: Icon(Icons.add),
+//        onPressed: () {
+//          _onClickFab();
+//        },
+//      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            backgroundColor: Colors.red,
+            child: Icon(Icons.add),
+            onPressed: () {
+              _onClickFab();
+            },
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          FloatingActionButton(
+            backgroundColor: Colors.red,
+            child: Icon(Icons.favorite),
+            onPressed: () {
+              _onClickFab();
+            },
+          )
+        ],
+      ),
     );
+  }
+
+  _onClickFab() {
+    print("Add");
   }
 
   _body(BuildContext context) {
     // Padding can be used instead of Container.
     return Container(
+      margin: EdgeInsets.only(top: 16),
       color: Colors.white,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           _text(),
           _pageView(),
@@ -122,7 +156,6 @@ class HomePage extends StatelessWidget {
         // WillPopScope instead of AlertDialog prevents
         // alert dialog closes while pushs screen back button.
         return WillPopScope(
-
           // Remove onWillPop if using Alert Dialog.
           onWillPop: () async => false,
           child: AlertDialog(
@@ -158,8 +191,7 @@ class HomePage extends StatelessWidget {
         timeInSecForIos: 1,
         backgroundColor: Colors.red,
         textColor: Colors.white,
-        fontSize: 16.0
-    );
+        fontSize: 16.0);
   }
 
   void _onClickNavigator(BuildContext context, Widget page) async {
