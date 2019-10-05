@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/pages/hello_page1.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -83,7 +84,9 @@ class HomePage extends StatelessWidget {
   }
 
   void _onClickOk(BuildContext context) {
-    print("Button clicked!");
+    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+      return HelloPage1();
+    }));
   }
 
   _img(String img) {
