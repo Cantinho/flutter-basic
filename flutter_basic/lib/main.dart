@@ -10,9 +10,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.blue
       ),
-      home: Container(
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Hello World!"),
+        centerTitle: true,
+      ),
+      body: Container(
         color: Colors.white,
       ),
     );
   }
 }
+
