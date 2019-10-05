@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/widgets/blue_button.dart';
 
 class HelloPage2 extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,19 +13,17 @@ class HelloPage2 extends StatelessWidget {
     );
   }
 
-  _body(BuildContext context) {
+  _body(context) {
     return Center(
-      child: RaisedButton(
-          color: Colors.blue,
-          child: Text(
-            "Back",
-            style: TextStyle(color: Colors.white),
-          ),
-          onPressed: () => _onClickVoltar(context)),
+      child: BlueButton(
+        "Back",
+        onPressed: () => _onClickBack(context),
+        color: Colors.red,
+      ),
     );
   }
 
-  _onClickVoltar(BuildContext context) {
+  _onClickBack(context) {
     Navigator.pop(context, "Screen 2");
   }
 }
