@@ -15,32 +15,37 @@ class HomePage extends StatelessWidget {
   }
 
   _body(context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          _text(),
-          _pageView(),
-          _buttons(),
-        ],
+    // Padding can be used instead of Container.
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Container(
+        color: Colors.yellow,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            _text(),
+            _pageView(),
+            _buttons(),
+          ],
+        ),
       ),
     );
   }
 
   _pageView() {
     return Container(
-      margin: EdgeInsets.all(16),
-          height: 300,
-          child: PageView(
-            children: <Widget>[
-              _img("assets/images/dog1.png"),
-              _img("assets/images/dog2.png"),
-              _img("assets/images/dog3.png"),
-              _img("assets/images/dog4.png"),
-              _img("assets/images/dog5.png"),
-            ],
-          ),
-        );
+      margin: EdgeInsets.only(top: 16, bottom: 16),
+      height: 300,
+      child: PageView(
+        children: <Widget>[
+          _img("assets/images/dog1.png"),
+          _img("assets/images/dog2.png"),
+          _img("assets/images/dog3.png"),
+          _img("assets/images/dog4.png"),
+          _img("assets/images/dog5.png"),
+        ],
+      ),
+    );
   }
 
   _buttons() {
