@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           _text(),
           _pageView(),
-          _buttons(context),
+          _buttons(),
         ],
       ),
     );
@@ -67,38 +67,55 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _buttons(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  _buttons() {
+    return Builder(
+      builder: (BuildContext context) {
+        return Column(
           children: <Widget>[
-            BlueButton("ListView",
-                onPressed: () => _onClickNavigator(context, HelloListView())),
-            BlueButton("Page 2",
-                onPressed: () => _onClickNavigator(context, HelloPage2())),
-            BlueButton("Page 3",
-                onPressed: () => _onClickNavigator(context, HelloPage3())),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                BlueButton("ListView",
+                    onPressed: () =>
+                        _onClickNavigator(context, HelloListView())),
+                BlueButton("Page 2",
+                    onPressed: () => _onClickNavigator(context, HelloPage2())),
+                BlueButton("Page 3",
+                    onPressed: () => _onClickNavigator(context, HelloPage3())),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                BlueButton("Snack", onPressed: () => _onClickSnake(context)),
+                BlueButton("Dialog", onPressed: () => _onClickDialog(context)),
+                BlueButton("Toast", onPressed: () => _onClickToast(context)),
+              ],
+            ),
           ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            BlueButton("Snack", onPressed: _onClickSnake),
-            BlueButton("Dialog", onPressed: _onClickDialog),
-            BlueButton("Toast", onPressed: _onClickToast),
-          ],
-        ),
-      ],
+        );
+      },
     );
   }
 
-  _onClickSnake() {}
+  _onClickSnake(BuildContext context) {
+    Scaffold.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Hello SnackBar!"),
+        action: SnackBarAction(
+          textColor: Colors.redAccent,
+          label: "OK",
+          onPressed: () {
+            print("OK Snack!");
+          },
+        ),
+      ),
+    );
+  }
 
-  _onClickDialog() {}
+  _onClickDialog(BuildContext context) {}
 
-  _onClickToast() {}
-
+  _onClickToast(BuildContext context) {}
 
   void _onClickNavigator(BuildContext context, Widget page) async {
     String s = await push(context, page);
