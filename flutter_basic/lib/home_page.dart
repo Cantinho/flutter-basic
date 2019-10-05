@@ -16,34 +16,49 @@ class HomePage extends StatelessWidget {
 
   _body(context) {
     return Container(
-      child: _buttons(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          _text(),
+          _pageView(),
+          _buttons(),
+        ],
+      ),
     );
+  }
+
+  _pageView() {
+    return Container(
+          height: 300,
+          child: PageView(
+            children: <Widget>[
+              _img("assets/images/dog1.png"),
+              _img("assets/images/dog2.png"),
+              _img("assets/images/dog3.png"),
+              _img("assets/images/dog4.png"),
+              _img("assets/images/dog5.png"),
+            ],
+          ),
+        );
   }
 
   _buttons() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        _text(),
-        _img(),
-        Column(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                _button("ListView"),
-                _button("Page 2"),
-                _button("Page 3"),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                _button("Snack"),
-                _button("Dialog"),
-                _button("Toast"),
-              ],
-            ),
+            _button("ListView"),
+            _button("Page 2"),
+            _button("Page 3"),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            _button("Snack"),
+            _button("Dialog"),
+            _button("Toast"),
           ],
         ),
       ],
@@ -68,9 +83,9 @@ class HomePage extends StatelessWidget {
     print("Button clicked!");
   }
 
-  _img() {
+  _img(String img) {
     return Image.asset(
-      "assets/images/dog5.png",
+      img,
       fit: BoxFit.cover,
     );
   }
