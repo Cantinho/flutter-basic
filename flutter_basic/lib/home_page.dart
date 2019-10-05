@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/drawer_list.dart';
 import 'package:flutter_basic/pages/hello_listview.dart';
 import 'package:flutter_basic/pages/hello_page2.dart';
 import 'package:flutter_basic/pages/hello_page3.dart';
@@ -46,6 +47,7 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
+      drawer: DrawerList(),
     );
   }
 
