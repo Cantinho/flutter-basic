@@ -48,6 +48,7 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             FloatingActionButton(
+              heroTag: "btn1",
               backgroundColor: Colors.red,
               child: Icon(Icons.add),
               onPressed: () {
@@ -58,6 +59,7 @@ class HomePage extends StatelessWidget {
               width: 8,
             ),
             FloatingActionButton(
+              heroTag: "btn2",
               backgroundColor: Colors.red,
               child: Icon(Icons.favorite),
               onPressed: () {
