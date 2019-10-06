@@ -10,14 +10,33 @@ import 'package:fluttertoast/fluttertoast.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Hello World!",
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Hello World!",
+          ),
+          centerTitle: true,
+          bottom: TabBar(
+            tabs: <Widget>[
+              Text("TAB 1"),
+              Text("TAB 2"),
+              Text("TAB 3"),
+            ],
+          ),
         ),
-        centerTitle: true,
-      ),
-      body: _body(context),
+        body: TabBarView(
+          children: <Widget>[
+            _body(context),
+            Container(
+              color: Colors.green,
+            ),
+            Container(
+              color: Colors.blue,
+            ),
+          ],
+        ),
 //      floatingActionButton: FloatingActionButton(
 //        backgroundColor: Colors.redAccent,
 //        child: Icon(Icons.add),
@@ -25,29 +44,30 @@ class HomePage extends StatelessWidget {
 //          _onClickFab();
 //        },
 //      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          FloatingActionButton(
-            backgroundColor: Colors.red,
-            child: Icon(Icons.add),
-            onPressed: () {
-              _onClickFab();
-            },
-          ),
-          SizedBox(
-            width: 8,
-          ),
-          FloatingActionButton(
-            backgroundColor: Colors.red,
-            child: Icon(Icons.favorite),
-            onPressed: () {
-              _onClickFab();
-            },
-          )
-        ],
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            FloatingActionButton(
+              backgroundColor: Colors.red,
+              child: Icon(Icons.add),
+              onPressed: () {
+                _onClickFab();
+              },
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            FloatingActionButton(
+              backgroundColor: Colors.red,
+              child: Icon(Icons.favorite),
+              onPressed: () {
+                _onClickFab();
+              },
+            )
+          ],
+        ),
+        drawer: DrawerList(),
       ),
-      drawer: DrawerList(),
     );
   }
 
