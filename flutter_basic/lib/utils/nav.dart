@@ -10,5 +10,5 @@ Future push(BuildContext context, Widget page) {
 }
 
 pop(BuildContext context, String text) {
-  Navigator.pop(context, "Screen 2");
+  Navigator.pop(context, text);
 }
